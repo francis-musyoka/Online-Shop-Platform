@@ -18,7 +18,7 @@ const Navbar = () => {
 
     return (
         <nav className="dark:bg-yellow-900">
-            <div className="max-w-screen-xl mx-auto p-4">
+            <div className="max-w-screen-xl mx-auto p-4 ">
                 <div className="flex flex-col md:hidden">
                     <div className="flex items-center justify-between space-x-4">
                         <button

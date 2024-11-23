@@ -5,7 +5,6 @@ import Categories from './components/customer/Categories';
 import SignIn from './components/customer/SignIn';
 import Cart from './components/customer/Cart';
 import Navbar from './components/customer/Navbar';
-import NavbarOne from './components/customer/NavbarOne';
 import Account from './components/Account/Account';
 import Profile from './components/Account/Profile';
 import Orders from './components/Account/Orders';
@@ -22,18 +21,20 @@ import ShopProfile from './components/seller/ShopProfile';
 import AddProduct from './components/seller/AddProduct';
 import MyProducts from './components/seller/MyProducts';
 import EditProduct from './components/seller/EditProduct';
+import Layout from './components/Layout';
 
 function App() {
   
   return (
     <>
       <BrowserRouter>
-        <ShowNavbar>
-          <NavbarOne/>
-          <Navbar/>
-        </ShowNavbar>
+        {/* <ShowNavbar>
+          {/* <Navbar/> */}
+        {/* </ShowNavbar> */} 
+
             
         <Routes>
+            <Route path={PATH_URL.HOME} element={<Layout/>}>
             <Route path={PATH_URL.HOME} element={<Home />} />
             <Route path={PATH_URL.CATEGORIES} element={<Categories />} />
             <Route path={PATH_URL.SIGN_IN} element={<SignIn />} />
@@ -43,6 +44,7 @@ function App() {
                 <Route path={PATH_URL.ACCOUNT.PROFILE} element={<Profile />} />
                 <Route path={PATH_URL.ACCOUNT.ORDERS} element={<Orders />} />
                 <Route path={PATH_URL.ACCOUNT.FAVOURITES} element={<Favourite />} />
+            </Route>
             </Route>
             <Route path={PATH_URL.SIGN_UP} element={<SignUp />} />
             <Route path={PATH_URL.SELL.DASHBOARD} element={<SellDashBoard />}>
@@ -56,9 +58,9 @@ function App() {
             
         </Routes>
 
-            <ShowNavbar>
+            {/* <ShowNavbar>
              <Footer />
-            </ShowNavbar>
+            </ShowNavbar> */}
             
           </BrowserRouter>
 
