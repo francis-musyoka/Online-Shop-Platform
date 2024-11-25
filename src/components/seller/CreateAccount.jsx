@@ -16,6 +16,7 @@ const CreateAccount = () => {
 
     const [formErrors, setFormErrors] = useState('')
 
+    // Validates the form data for the address section
     const validateForm = (addressData) =>{
         const errors = validateAddressForm(addressData)
         setFormErrors(errors)
@@ -29,13 +30,14 @@ const CreateAccount = () => {
     };
 
 
+    // Handles moving to the next step and store the values in openAccountData
     const handleNextStep = (data) => {
-        setStep(step + 1);
-        setOpenAccountData(data)
-        console.log(openAccountData);
-          
+        setStep(step + 1); 
+        setOpenAccountData(data);
     };
 
+
+    // Decrements the step counter to go back to the previous step.
     const handlePreviousStep = () => {
         setStep(step - 1);
     };
@@ -45,12 +47,10 @@ const CreateAccount = () => {
         e.preventDefault();
         const isValid = validateForm(addressData);
 
+        // Merge the open account and address data
         if(isValid){
             const formData = {...openAccountData, ...addressData};
-
-            console.log(formData);
-            
-            
+            console.log(formData);   
         }
     }
     

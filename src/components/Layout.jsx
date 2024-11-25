@@ -6,24 +6,24 @@ import { PATH_URL } from '../constant';
 
 const Layout = () => {
     return (
-        <div>
+        <div className='bg-tertiary '>
             <div className="max-w-screen-xl flex flex-wrap items-center mx-auto p-2">
                 <div className="items-center flex ml-auto">
-                    <Link to={PATH_URL.SELL.CREATE_BUSINESS_ACCOUNT} className="dark:text-black">
+                    <Link to={PATH_URL.SELL.CREATE_BUSINESS_ACCOUNT} className="text-secondary hover:underline">
                         Open Shop
                     </Link>
                 </div>
             </div>
-            <header className="sticky top-0 z-50">
+            <header className="bg-primary sticky top-0 z-10">
                 <Navbar/>
             </header>
-
             
-            <main>
-                <Outlet /> 
-            </main>
+            <div className='min-h-screen' >
+                
+                <Outlet/>
+            </div>
 
-            <div className=''>
+            <div>
                  <Footer/> 
             </div>
             

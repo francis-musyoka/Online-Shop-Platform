@@ -5,8 +5,17 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors:{
+          "primary": "#4A90E2",
+          "secondary": "#FFC107",
+          "tertiary": "#F4F4F4",
+          "neutral": "#030712", 
+      }
+    },
   },
   plugins: [],
+  safelist: ['btn', 'btn-primary', 'btn-secondary', 'btn-tertiary', 'btn-neutral', 'btn-small', 'btn-medium', 'btn-large',  'btn-disabled']
+
 }
 
