@@ -1,0 +1,47 @@
+services:
+
+  mysql:
+    image: mysql:latest
+    container_name: mysql-shop-container
+    restart: always
+    env_file:
+    - ./server/.env
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  back_end:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    image: shop_server
+    container_name: shop_backend
+    restart: always
+    env_file:
+    - ./server/.env
+    ports: 
+      - "5000:5000"
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  front_end:
+    build:
+      context: ./shop
+      dockerfile: Dockerfile
+    image: shop_front_end  
+    container_name: shop_frontend
+    ports: 
+      - "3000:3000"
+    depends_on:
+      - back_end
+
+  
+volumes:
+  mysql_data:
