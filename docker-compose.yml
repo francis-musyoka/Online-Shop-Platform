@@ -20,7 +20,7 @@ services:
     build:
       context: ./server
       dockerfile: Dockerfile
-    image: shop_server
+    image: kanzala01/online-shop-platform:backend-v1
     container_name: shop_backend
     restart: always
     env_file:
@@ -35,7 +35,7 @@ services:
     build:
       context: ./shop
       dockerfile: Dockerfile
-    image: shop_front_end  
+    image: kanzala01/online-shop-platform:frontend-v1
     container_name: shop_frontend
     ports: 
       - "3000:3000"
