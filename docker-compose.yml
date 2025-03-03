@@ -20,7 +20,7 @@ services:
     build:
       context: ./server
       dockerfile: Dockerfile
-    image: kanzala01/online-shop-platform:backend-v6
+    image: kanzala01/online-shop-platform:backend-v5
     container_name: shop_backend
     restart: always
     env_file:
@@ -35,7 +35,7 @@ services:
     build:
       context: ./shop
       dockerfile: Dockerfile
-    image: kanzala01/online-shop-platform:frontend-v6
+    image: kanzala01/online-shop-platform:frontend-v4
     container_name: shop_frontend
     ports: 
       - "3000:3000"
@@ -45,74 +45,6 @@ services:
   
 volumes:
   mysql_data:
-
-
-
-# services:
-
-#   mysql:
-#     image: mysql:latest
-#     container_name: shop_mysql
-#     restart: always
-#     environment:
-#       MYSQL_ROOT_PASSWORD: Account@2020
-#       MYSQL_DATABASE: Shop
-#       MYSQL_USER: shop_user
-#       MYSQL_PASSWORD: 123456@Tm
-#     healthcheck:
-#       test: ["CMD", "mysqladmin", "ping", "-h", "mysql"]
-#       interval: 10s
-#       retries: 5
-#     ports:
-#       - "3307:3306"
-
-#   back_end:
-#     image: kanzala01/online-shop-platform:backend-v3
-#     container_name: shop_backend
-#     restart: always
-#     environment:
-#       PORT: 5000
-#       TOKEN_SECRET: 264bb775-caaa-4e68-905d-fde6c69d353e
-#       TOKEN_EXPIRES_IN: 86400
-#       FORGOT_PASSWORD_TOKEN_EXPIRES_IN: 600
-#       COOKIE_HTTP_ONLY: "true"
-#       COOKIE_SECURE: "true"
-#       COOKIE_SAME_SITE: Lax
-#       PASSWORDAPP: fmts ufkf nbxk ximq
-#       E_MAIL: aappp2358@gmail.com
-#       SHOP_TOKEN_SECRET: 264dd990-cllk-4e68-105d-h1r7oz9d353e
-#       SHOP_TOKEN_EXPIRES_IN: 172800
-#       DATABASE_HOST: mysql
-#       DATABASE_USER: shop_user
-#       DATABASE_PASSWORD: 123456@Tm
-#       DATABASE_NAME: Shop
-#       DATABASE_DIALECT: mysql
-#     ports:
-#       - "5000:5000"
-#     depends_on:
-#       mysql:
-#         condition: service_healthy
-
-#   front_end:
-#       build:
-#         context: ./shop
-#         dockerfile: Dockerfile
-#       image: kanzala01/online-shop-platform:frontend-v3
-#       container_name: shop_frontend
-#       ports: 
-#         - "3000:3000"
-#       depends_on:
-#         - back_end
-
-# volumes:
-#   mysql_data:
-
-
-
-
-
-
-
 
 
 
